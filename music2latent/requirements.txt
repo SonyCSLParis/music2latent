@@ -1,0 +1,4 @@
+numpy
+soundfile
+huggingface_hub
+torch>=2.0.1
