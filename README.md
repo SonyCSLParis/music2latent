@@ -7,6 +7,7 @@ Read the ISMIR 2024 paper [here](https://arxiv.org/).
 
 Under the hood, __Music2Latent__ uses a __Consistency Autoencoder__ model to efficiently encode and decode audio samples.
 44.1 kHz audio is encoded into a sequence of __~10 Hz__, and each of the latents has 64 channels.
+You can also encode 48 kHz audio, which results in a sequence of ~12 Hz.
 You can then train a generative model on these embeddings, or use them for other downstream tasks.
 
 Music2Latent was trained on __music__ and on __speech__. Refer to the [paper](https://arxiv.org/) for more details.
@@ -34,13 +35,13 @@ To encode and decode audio samples to/from latent embeddings:
 
    wv_rec = encdec.decode(latent)
    ```
-If you need to extract encoder features to use in downstream tasks, and you don't need to reconstruct the audio:
+To extract encoder features to use in downstream tasks:
    ```bash
    features = encoder.encode(wv, extract_features=True)
    ```
-These features are extracted before the encoder bottleneck, and thus have more channels (contain more information) than the latents used for reconstruction.
+These features are extracted before the encoder bottleneck, and thus have more channels (contain more information) than the latents used for reconstruction. It will not be possible to directly decode these features back to audio.
 
-music2latent supports more advanced usage, inclusing GPU memory management controls. Please refer to __tutorial.ipynb__.
+music2latent supports more advanced usage, including GPU memory management controls. Please refer to __tutorial.ipynb__.
 
 
 ## License
