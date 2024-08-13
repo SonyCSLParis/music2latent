@@ -149,7 +149,7 @@ def encode_audio_inference(audio_path, trainer, max_waveform_length_encode, max_
         latent_ls = torch.split(latent, audio_channels, 0)
         latent = torch.cat(latent_ls, -1)
     latent = latent[:,:,:latent.shape[-1]-(pad_size//downscaling_factor)]
-    return latent
+    return latent/sigma_rescale
 
 
 
@@ -166,6 +166,7 @@ def decode_latent_inference(latent, trainer, max_waveform_length_decode, max_bat
     trainer.gen = trainer.gen.to(device)
     trainer.gen.eval()
     downscaling_factor = 2**freq_downsample_list.count(0)
+    latent = latent*sigma_rescale
     # check if latent is numpy array, then convert to tensor
     if isinstance(latent, np.ndarray):
         latent = torch.from_numpy(latent)
