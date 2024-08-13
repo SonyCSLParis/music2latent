@@ -26,7 +26,7 @@ To encode and decode audio samples to/from latent embeddings:
    audio_path = librosa.example('trumpet')
    wv, sr = librosa.load(audio_path, sr=44100)
 
-   from music2latent2 import EncoderDecoder
+   from music2latent import EncoderDecoder
    encdec = EncoderDecoder()
 
    latent = encdec.encode(wv)
