@@ -40,7 +40,7 @@ If you need to extract encoder features to use in downstream tasks, and you don'
    ```
 These features are extracted before the encoder bottleneck, and thus have more channels (contain more information) than the latents used for reconstruction.
 
-music2latent2 supports more advanced usage, inclusing GPU memory management controls. Please refer to __tutorial.ipynb__.
+music2latent supports more advanced usage, inclusing GPU memory management controls. Please refer to __tutorial.ipynb__.
 
 
 ## License
