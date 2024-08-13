@@ -7,8 +7,8 @@ Read the ISMIR 2024 paper [here](https://arxiv.org/).
 
 Under the hood, __Music2Latent__ uses a __Consistency Autoencoder__ model to efficiently encode and decode audio samples.
 44.1 kHz audio is encoded into a sequence of __~10 Hz__, and each of the latents has 64 channels.
-You can also encode 48 kHz audio, which results in a sequence of ~12 Hz.
-You can then train a generative model on these embeddings, or use them for other downstream tasks.
+48 kHz audio can also be encoded, which results in a sequence of ~12 Hz.
+A generative model can then be trained on these embeddings, or they can be used for other downstream tasks.
 
 Music2Latent was trained on __music__ and on __speech__. Refer to the [paper](https://arxiv.org/) for more details.
 
@@ -18,7 +18,7 @@ Music2Latent was trained on __music__ and on __speech__. Refer to the [paper](ht
    ```bash
    pip install music2latent
    ```
-The model weights will be downloaded automatically the first time you run the code.
+The model weights will be downloaded automatically the first time the code is run.
 
 
 ## How to use
