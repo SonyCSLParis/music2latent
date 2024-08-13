@@ -1,6 +1,5 @@
 import os
 from os import path as ospath
-import shutil
 from huggingface_hub import hf_hub_download
 import torch
 

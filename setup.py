@@ -2,9 +2,9 @@ from setuptools import setup, find_packages
 
 setup(
     name='music2latent',
-    version='0.1.2',
+    version='0.1.3',
     packages=find_packages(), 
-    description='Encode and decode audio samples to compressed representations!',
+    description='Encode and decode audio samples to/from compressed representations!',
     author='Sony Computer Science Laboratories Paris',
     author_email='music@csl.sony.fr', 
     long_description=open('README.md').read(),

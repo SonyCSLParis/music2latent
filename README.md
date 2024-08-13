@@ -1,5 +1,5 @@
 # Music2Latent
-Encode and decode audio samples to compressed representations! Useful for efficient generative modelling applications and for other downstream tasks.
+Encode and decode audio samples to/from compressed representations! Useful for efficient generative modelling applications and for other downstream tasks.
 
 ![music2latent](music2latent.png)
 
