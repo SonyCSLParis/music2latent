@@ -4,6 +4,7 @@ Encode and decode audio samples to/from compressed representations! Useful for e
 ![music2latent](music2latent.png)
 
 Read the ISMIR 2024 paper [here](https://arxiv.org/abs/2408.06500).
+Listen to audio samples [here](https://sonycslparis.github.io/music2latent-companion/).
 
 Under the hood, __Music2Latent__ uses a __Consistency Autoencoder__ model to efficiently encode and decode audio samples.
 
