@@ -3,7 +3,7 @@ Encode and decode audio samples to/from compressed representations! Useful for e
 
 ![music2latent](music2latent.png)
 
-Read the ISMIR 2024 paper [here](https://arxiv.org/).
+Read the ISMIR 2024 paper [here](https://arxiv.org/abs/2408.06500).
 
 Under the hood, __Music2Latent__ uses a __Consistency Autoencoder__ model to efficiently encode and decode audio samples.
 
@@ -11,7 +11,7 @@ Under the hood, __Music2Latent__ uses a __Consistency Autoencoder__ model to eff
 48 kHz audio can also be encoded, which results in a sequence of ~12 Hz.
 A generative model can then be trained on these embeddings, or they can be used for other downstream tasks.
 
-Music2Latent was trained on __music__ and on __speech__. Refer to the [paper](https://arxiv.org/) for more details.
+Music2Latent was trained on __music__ and on __speech__. Refer to the [paper](https://arxiv.org/abs/2408.06500) for more details.
 
 
 ## Installation
