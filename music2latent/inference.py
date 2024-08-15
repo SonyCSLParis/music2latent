@@ -70,11 +70,11 @@ class EncoderDecoder:
 #   diffusion_steps: number of steps
 # Returns:
 #   decoded_spectrograms with shape [audio_channels/batch_size, data_channels, hop*2, length*downscaling_factor]
-def decode_to_representation(model, latents, diffusion_steps=1):
+def decode_to_representation(model, latents, diffusion_steps=1, device='cuda'):
     num_samples = latents.shape[0]
     downscaling_factor = 2**freq_downsample_list.count(0)
     sample_length = int(latents.shape[-1]*downscaling_factor)
-    initial_noise = torch.randn((num_samples, data_channels, hop*2, sample_length))*sigma_max
+    initial_noise = torch.randn((num_samples, data_channels, hop*2, sample_length)).to(device)*sigma_max
     decoded_spectrograms = reverse_diffusion(model, initial_noise, diffusion_steps, latents=latents)
     return decoded_spectrograms
 
@@ -196,11 +196,11 @@ def decode_latent_inference(latent, trainer, max_waveform_length_decode, max_bat
         latent_ls = torch.split(latent, max_batch_size, dim=0)
         repr_ls = []
         for i in range(len(latent_ls)):
-            repr = decode_to_representation(trainer.gen, latent_ls[i], diffusion_steps=diffusion_steps)
+            repr = decode_to_representation(trainer.gen, latent_ls[i], diffusion_steps=diffusion_steps, device=device)
             repr_ls.append(repr)
         repr = torch.cat(repr_ls, dim=0)
     else:
-        repr = decode_to_representation(trainer.gen, latent, diffusion_steps=diffusion_steps)
+        repr = decode_to_representation(trainer.gen, latent, diffusion_steps=diffusion_steps, device=device)
     # split samples
     if repr.shape[0]>1:
         repr_ls = torch.split(repr, audio_channels, 0)
