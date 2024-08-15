@@ -149,7 +149,10 @@ def encode_audio_inference(audio_path, trainer, max_waveform_length_encode, max_
         latent_ls = torch.split(latent, audio_channels, 0)
         latent = torch.cat(latent_ls, -1)
     latent = latent[:,:,:latent.shape[-1]-(pad_size//downscaling_factor)]
-    return latent/sigma_rescale
+    if extract_features:
+        return latent
+    else:
+        return latent/sigma_rescale
 
 
 
