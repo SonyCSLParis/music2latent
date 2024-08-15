@@ -74,7 +74,7 @@ def decode_to_representation(model, latents, diffusion_steps=1):
     num_samples = latents.shape[0]
     downscaling_factor = 2**freq_downsample_list.count(0)
     sample_length = int(latents.shape[-1]*downscaling_factor)
-    initial_noise = torch.randn((num_samples, data_channels, hop*2, sample_length)).cuda()*sigma_max
+    initial_noise = torch.randn((num_samples, data_channels, hop*2, sample_length))*sigma_max
     decoded_spectrograms = reverse_diffusion(model, initial_noise, diffusion_steps, latents=latents)
     return decoded_spectrograms
 
