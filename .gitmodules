@@ -1,0 +1,3 @@
+[submodule "audioldm_eval"]
+	path = audioldm_eval
+	url = https://github.com/haoheliu/audioldm_eval
